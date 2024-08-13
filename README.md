@@ -4,6 +4,3 @@
     <img alt="FastBoot" src="docs/assets/Banner.png">
   </picture>
 </p>
-
----
-
