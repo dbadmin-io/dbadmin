@@ -1,0 +1,25 @@
+import java.nio.charset.StandardCharsets
+
+allprojects {
+    group = 'org.dbadmin'
+    version = '0.1.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_17
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = StandardCharsets.UTF_8
+    }
+
+    // Rename generated jars
+    if (!base.archivesName.get().startsWith(rootProject.name + "-")) {
+        base.archivesName = rootProject.name + "-" + project.name
+    }
+}

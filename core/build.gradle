@@ -1,0 +1,9 @@
+plugins {
+    id 'application'
+}
+
+description = "This is the main application"
+
+application {
+    mainClass = 'org.dbadmin.Application'
+}
