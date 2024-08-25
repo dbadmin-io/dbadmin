@@ -1,25 +1,28 @@
-import java.nio.charset.StandardCharsets
-
-allprojects {
-    group = 'org.dbadmin'
-    version = '0.1.0'
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
 }
 
-subprojects {
-    apply plugin: 'java'
+group = 'org.dbadmin'
+version = '0.0.1-alpha'
 
-    repositories {
-        mavenCentral()
-    }
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
 
-    sourceCompatibility = JavaVersion.VERSION_17
+repositories {
+	mavenCentral()
+}
 
-    tasks.withType(JavaCompile).configureEach {
-        options.encoding = StandardCharsets.UTF_8
-    }
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 
-    // Rename generated jars
-    if (!base.archivesName.get().startsWith(rootProject.name + "-")) {
-        base.archivesName = rootProject.name + "-" + project.name
-    }
+tasks.named('test') {
+	useJUnitPlatform()
 }
