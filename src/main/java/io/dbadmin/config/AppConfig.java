@@ -1,7 +1,7 @@
-package org.dbadmin.config;
+package io.dbadmin.config;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ApplicationConfig {
+public class AppConfig {
 }

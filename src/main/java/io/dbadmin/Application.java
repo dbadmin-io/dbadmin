@@ -1,4 +1,4 @@
-package org.dbadmin;
+package io.dbadmin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
